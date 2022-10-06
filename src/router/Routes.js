@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Layout from '../views/layout/Layout'
 import Home from '../views/pages/Home'
+import Video from '../views/pages/Video'
 
 const Routes = [
   {
@@ -10,6 +11,10 @@ const Routes = [
       {
         path: '',
         element: <Home />
+      },
+      {
+        path: 'videos/:id',
+        element: <Video />
       }
     ]
   }
