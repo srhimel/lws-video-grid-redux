@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import getTags from "./tagsAPI"
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import getTags from './tagsAPI'
 
 const initialState = {
   tags: [],
@@ -14,18 +14,18 @@ export const fetchTags = createAsyncThunk('tags/fetchTags', async () => {
 const tagsSlice = createSlice({
   name: 'tags',
   initialState,
-  extraReducers: builder => {
-    builder.addCase(fetchTags.pending, state => {
-    	state.loading = true
-    }) 
+  extraReducers: (builder) => {
+    builder.addCase(fetchTags.pending, (state) => {
+      state.isLoading = true
+    })
     builder.addCase(fetchTags.fulfilled, (state, action) => {
       state.isLoading = false
-      state.videos = action.payload
+      state.tags = action.payload
       state.isError = false
     })
     builder.addCase(fetchTags.rejected, (state, action) => {
       state.isLoading = false
-      state.videos = []
+      state.tags = []
       state.isError = true
       state.error = action.error.message
     })
