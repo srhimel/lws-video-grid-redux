@@ -18,7 +18,7 @@ const Video = () => {
     (state) => state.video
   )
 
-  const { link, title, description, date, likes, unlikes } = video || {}
+  const { link, title, description, date, likes, unlikes, tags } = video || {}
 
   let content
   if (isLoading) {
@@ -47,7 +47,7 @@ const Video = () => {
         </div>
 
         {/* <!-- related videos --> */}
-        <RelatedVideos />
+        <RelatedVideos videoId={id} tags={tags} />
       </div>
     )
   }
