@@ -16,6 +16,7 @@ const tagsSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder.addCase(fetchTags.pending, (state) => {
+      state.isError = false
       state.isLoading = true
     })
     builder.addCase(fetchTags.fulfilled, (state, action) => {
