@@ -7,7 +7,7 @@ import RelatedVideo from './RelatedVideo'
 const RelatedVideos = ({ tags, videoId }) => {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchRelatedVideos({ tags, videoId }))
+    dispatch(fetchRelatedVideos({ tags, id: videoId }))
   }, [dispatch, tags, videoId])
 
   const { relatedVideos, isLoading, isError, error } = useSelector(
