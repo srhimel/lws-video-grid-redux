@@ -7,9 +7,10 @@ import VideoGridItem from './VideoGridItem'
 const VideoGrid = () => {
   const dispatch = useDispatch()
 
+  const { tags, search } = useSelector((state) => state.filter)
   useEffect(() => {
-    dispatch(fetchVideos())
-  }, [dispatch])
+    dispatch(fetchVideos({ tags, search }))
+  }, [dispatch, tags, search])
 
   const { videos, isError, error, isLoading } = useSelector(
     (state) => state.videos
